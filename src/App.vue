@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { RouterView } from "vue-router";
 import { useCounterStore } from "./stores/counter";
 
 const counterStore = useCounterStore();
@@ -9,12 +10,18 @@ const increment = () => {
 </script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
-  <p>Counter: {{ counterStore.count }} <button @click="increment">Increment</button></p>
+  <div class="appContainer">
+    <RouterView />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.appContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+</style>
